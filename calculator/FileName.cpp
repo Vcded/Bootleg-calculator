@@ -2,6 +2,7 @@
 
 int Addition(int a, int b);
 int Subtraction(int a, int b);
+int Multiplication(int a, int b);
 
 int Addition(int a, int b) {
 	return a + b;
@@ -9,6 +10,10 @@ int Addition(int a, int b) {
 
 int Subtraction(int a, int b) {
 	return a - b;
+}
+
+int Multiplication(int a, int b) {
+	return a * b;
 }
 
 int main(void) {
