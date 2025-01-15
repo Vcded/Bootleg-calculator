@@ -1,29 +1,31 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 
-double Addition(int a, int b);
-double Subtraction(int a, int b);
-double Multiplication(int a, int b);
-void Division(int a, int b);
+double Addition(double a, double b);
+double Subtraction(double a, double b);
+double Multiplication(double a, double b);
+void Division(double a, double b);
 void squareRoot(double a);
 void cubeRoot(double a);
 void modulus(double a, double b);
 double exponentiate(double a, double b);
 double getNum(void);
+void clearScreen();
 
-double Addition(int a, int b) {
+double Addition(double a, double b) {
 	return a + b;
 }
 
-double Subtraction(int a, int b) {
+double Subtraction(double a, double b) {
 	return a - b;
 }
 
-double Multiplication(int a, int b) {
+double Multiplication(double a, double b) {
 	return a * b;
 }
 
-void Division(int a, int b) {
+void Division(double a, double b) {
 	if (b == 0) {
 		printf("Division by zero was avoided.\n");
 	} else {
@@ -71,14 +73,24 @@ double getNum(void) {
 	fgets(record, 121, stdin);
 
 	//Attempt to convert the string to a double
-	if (sscanf(record, "%lf", &number) != 1) {
+	if (sscanf_s(record, "%lf", &number) != 1) {
 			//if conversion fails, set the number to -1
 			number = -1.0;
 	}
+
+	return number;
+}
+
+void clearScreen() {
+#ifdef _WIN32
+	system("cls");
+#endif // _WIN32
 }
 
 int main(void) {
 
+	//char letter[2] = {'Y', 'N'};
+	int again;
 	int choice;
 	double num1;
 	double num2;
@@ -94,10 +106,11 @@ int main(void) {
 		printf("\n5. Modulus");
 		printf("\n6. Squareroot of a number");
 		printf("\n7. Cube root of a number");
-		printf("\n8. Other options...\n");
+		printf("\n8. Exit...\n");
 
 		printf("Enter your choice");
 		choice = (int)getNum();
+		clearScreen();
 
 		if (choice == 8) {
 			printf("Exiting...\n\n");
@@ -109,12 +122,35 @@ int main(void) {
 			squareRoot(num1);
 		}
 		else if (choice < 7 && choice >= 1) {
+			if (choice == 1) {
+				printf("---Addition---\n");
+			}
+			else if (choice == 2) {
+				printf("---Subtraction---\n");
+			}
+			else if (choice == 3) {
+				printf("---Multiplication---\n");
+			}
+			else if (choice == 4) {
+				printf("---Division---\n");
+			}
+			else if (choice == 5) {
+				printf("---Modulus---\n");
+			}
+			else if (choice == 6) {
+				printf("---Squareroot of a number---\n");
+			}
+			else if (choice == 7) {
+				printf("---Cube root of a number---\n");
+			}
+
 			printf("Enter the first number: ");
 			num1 = getNum();
 			printf("Enter the second number: ");
 			num2 = getNum();
 
 			if (choice == 1) {
+				/*clearScreen();*/
 				printf("The sum of %.2f and %.2f is: %.2f\n\n", num1, num2, Addition(num1, num2));
 			}
 			else if (choice == 2) {
@@ -132,10 +168,31 @@ int main(void) {
 			else if (choice == 6) {
 				printf("%.2f to the power of %.2f is: %.2f\n\n", num1, num2, exponentiate(num1, num2));
 			}
+		
+			printf("Go again?");
+			again = (int)getNum();
+
+			if (again == 0) {
+				printf("Exiting...\n\n");
+				run = false;
+			}
+			else if (again != 0){
+				clearScreen();
+			
+			}
 		}
 
-	} while (run
-		);
+		/*printf("Perform another operation(Y/N)?");
+		fgets(letter, 30, stdin);
+
+		if (letter == 'Y') {
+			run = false;
+		}
+		else {
+			continue;
+		}*/
+
+	} while (run);
 	return 0;
 }
 
