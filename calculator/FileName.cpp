@@ -1,3 +1,5 @@
+﻿//TO-DO: Trigonometric functions, Logarithmic functions, Move square, cube root and modulus operations to "More operations"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -81,6 +83,7 @@ double getNum(void) {
 	return number;
 }
 
+//This function clears the screen 😃😃
 void clearScreen() {
 #ifdef _WIN32
 	system("cls");
@@ -92,6 +95,7 @@ int main(void) {
 	//char letter[2] = {'Y', 'N'};
 	int again;
 	int choice;
+	int more;
 	double num1;
 	double num2;
 	bool run = true;
@@ -106,22 +110,35 @@ int main(void) {
 		printf("\n5. Modulus");
 		printf("\n6. Squareroot of a number");
 		printf("\n7. Cube root of a number");
-		printf("\n8. Exit...\n");
+		printf("\n8. More operations...");
+		printf("\n9. Exit...\n");
 
 		printf("Enter your choice");
 		choice = (int)getNum();
 		clearScreen();
 
-		if (choice == 8) {
+		if (choice == 9) {
 			printf("Exiting...\n\n");
 			run = false;
 		}
-		else if (choice == 7) {
+		/*else if (choice == 8) {
+			printf("---More Operations---\n");
+			printf("\t1.Modulus\n");
+			printf("\t2.Square Root\n");
+			printf("\t3.Cube Root\n");
+			printf("\n Enter a choice");
+			more = (int)getNum();
+			clearScreen();
+		} if (more == 1) {
+
+		}*/
+
+		/*else if (choice == 7) {
 			printf("Enter the number: ");
 			num1 = getNum();
 			squareRoot(num1);
-		}
-		else if (choice < 7 && choice >= 1) {
+		}*/
+		else if (choice < 8 && choice >= 1) {
 			if (choice == 1) {
 				printf("---Addition---\n");
 			}
@@ -137,12 +154,12 @@ int main(void) {
 			else if (choice == 5) {
 				printf("---Modulus---\n");
 			}
-			else if (choice == 6) {
+			/*else if (choice == 6) {
 				printf("---Squareroot of a number---\n");
 			}
 			else if (choice == 7) {
 				printf("---Cube root of a number---\n");
-			}
+			}*/
 
 			printf("Enter the first number: ");
 			num1 = getNum();
@@ -196,5 +213,6 @@ int main(void) {
 	return 0;
 }
 
-
+//Hello, This is the creator of this code. I am a beginner in C programming and I am open to any suggestions or corrections. Thank you for your time.
+//Also, this is a personal project that I am working on to improve my programming skills.
 
