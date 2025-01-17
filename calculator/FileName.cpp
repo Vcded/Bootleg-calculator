@@ -95,7 +95,7 @@ int main(void) {
 	//char letter[2] = {'Y', 'N'};
 	int again;
 	int choice;
-	int more;
+	int more{};
 	double num1;
 	double num2;
 	bool run = true;
@@ -107,21 +107,18 @@ int main(void) {
 		printf("\n2. Subtraction");
 		printf("\n3. Multiplication");
 		printf("\n4. Division");
-		printf("\n5. Modulus");
-		printf("\n6. Squareroot of a number");
-		printf("\n7. Cube root of a number");
-		printf("\n8. More operations...");
-		printf("\n9. Exit...\n");
+		printf("\n5. More operations...");
+		printf("\n6. Exit...\n");
 
 		printf("Enter your choice");
 		choice = (int)getNum();
 		clearScreen();
 
-		if (choice == 9) {
+		if (choice == 6) {
 			printf("Exiting...\n\n");
 			run = false;
 		}
-		/*else if (choice == 8) {
+		else if (choice == 5) {
 			printf("---More Operations---\n");
 			printf("\t1.Modulus\n");
 			printf("\t2.Square Root\n");
@@ -131,14 +128,14 @@ int main(void) {
 			clearScreen();
 		} if (more == 1) {
 
-		}*/
+		}
 
 		/*else if (choice == 7) {
 			printf("Enter the number: ");
 			num1 = getNum();
 			squareRoot(num1);
 		}*/
-		else if (choice < 8 && choice >= 1) {
+		else if (choice < 5 && choice >= 1) {
 			if (choice == 1) {
 				printf("---Addition---\n");
 			}
@@ -167,7 +164,6 @@ int main(void) {
 			num2 = getNum();
 
 			if (choice == 1) {
-				/*clearScreen();*/
 				printf("The sum of %.2f and %.2f is: %.2f\n\n", num1, num2, Addition(num1, num2));
 			}
 			else if (choice == 2) {
@@ -179,12 +175,12 @@ int main(void) {
 			else if (choice == 4) {
 				Division(num1, num2);
 			}
-			else if (choice == 5) {
+			/*else if (choice == 5) {
 				modulus(num1, num2);
-			}
-			else if (choice == 6) {
+			}*/
+			/*else if (choice == 6) {
 				printf("%.2f to the power of %.2f is: %.2f\n\n", num1, num2, exponentiate(num1, num2));
-			}
+			}*/
 		
 			printf("Go again?");
 			again = (int)getNum();
