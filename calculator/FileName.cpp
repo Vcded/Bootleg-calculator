@@ -101,7 +101,7 @@ int main(void) {
 	bool run = true;
 
 	do {
-		printf("\t---Shit calculatoor---");
+		printf("\t---Shit kalculatoor---");
 		printf("\nWhat ooperation would u like to perform: ");
 		printf("\n1. Addition");
 		printf("\n2. Subtraction");
@@ -110,7 +110,7 @@ int main(void) {
 		printf("\n5. More operations...");
 		printf("\n6. Exit...\n");
 
-		printf("Enter your choice");
+		printf("Enter your choice: ");
 		choice = (int)getNum();
 		clearScreen();
 
@@ -119,22 +119,42 @@ int main(void) {
 			run = false;
 		}
 		else if (choice == 5) {
-			printf("---More Operations---\n");
-			printf("\t1.Modulus\n");
-			printf("\t2.Square Root\n");
-			printf("\t3.Cube Root\n");
-			printf("\n Enter a choice");
+			printf("\t---More Operations---\n");
+			printf("1.Modulus\n");
+			printf("2.Square Root\n");
+			printf("3.Cube Root\n");
+			printf("4. Exponentiate\n");
+			printf("\n Enter a choice: ");
 			more = (int)getNum();
 			clearScreen();
 		} if (more == 1) {
-
+			printf("\t---Modulus---\n");
+			printf("Enter the first number: \n");
+			num1 = (int)getNum();
+			printf("Enter the second number: \n");
+			num2 = (int)getNum();
+			modulus(num1, num2);
 		}
-
-		/*else if (choice == 7) {
-			printf("Enter the number: ");
-			num1 = getNum();
+		else if (more == 2) {
+			printf("\t---Square root---");
+			printf("\nEnter the number: ");
+			num1 = (int)getNum();
 			squareRoot(num1);
-		}*/
+		} 
+		else if (more == 3) {
+			printf("\t---Cube root---");
+			printf("\nEnter the number: ");
+			num1 = (int)getNum();
+			cubeRoot(num1);
+		}
+		else if (more == 4) {
+			printf("\t---Exponentiate---");
+			printf("\nEnter the base number: ");
+			num1 = getNum();
+			printf("\nEnter the exponent: ");
+			num2 = getNum();
+			printf("\n%.2f to the power of %.2f is: %.2f\n\n", num1, num2, exponentiate(num1, num2));
+		}
 		else if (choice < 5 && choice >= 1) {
 			if (choice == 1) {
 				printf("---Addition---\n");
@@ -148,15 +168,6 @@ int main(void) {
 			else if (choice == 4) {
 				printf("---Division---\n");
 			}
-			else if (choice == 5) {
-				printf("---Modulus---\n");
-			}
-			/*else if (choice == 6) {
-				printf("---Squareroot of a number---\n");
-			}
-			else if (choice == 7) {
-				printf("---Cube root of a number---\n");
-			}*/
 
 			printf("Enter the first number: ");
 			num1 = getNum();
@@ -175,12 +186,6 @@ int main(void) {
 			else if (choice == 4) {
 				Division(num1, num2);
 			}
-			/*else if (choice == 5) {
-				modulus(num1, num2);
-			}*/
-			/*else if (choice == 6) {
-				printf("%.2f to the power of %.2f is: %.2f\n\n", num1, num2, exponentiate(num1, num2));
-			}*/
 		
 			printf("Go again?");
 			again = (int)getNum();
@@ -192,6 +197,10 @@ int main(void) {
 			else if (again != 0){
 				clearScreen();
 			
+			}
+			else {
+				printf("Invalid input. Exiting...\n\n");
+				run = false;
 			}
 		}
 
